@@ -1,19 +1,19 @@
-package com.practice.java.apps;
+package com.practice.java.apps.tree;
 
-import com.practice.java.ds.tree.BasicBinaryTree;
+import com.practice.java.ds.tree.DsBinaryTree;
 
-public class ContactManagerApp {
-    private BasicBinaryTree<Contact> contacts = new BasicBinaryTree<>();
+public class DsBinaryTreeExampleApp {
+    private DsBinaryTree<Contact> contacts = new DsBinaryTree<>();
 
     public static void main(String[] args) {
-        ContactManagerApp app = new ContactManagerApp();
-        app.loadContacts();
+        DsBinaryTreeExampleApp dsBinaryTreeExampleApp = new DsBinaryTreeExampleApp();
+        dsBinaryTreeExampleApp.loadContacts();
 
         //See if we have any of the following contacts
-        app.searchContacts();
+        dsBinaryTreeExampleApp.searchContacts();
 
         //delete some contacts
-        app.cleanupContacts();
+        dsBinaryTreeExampleApp.cleanupContacts();
     }
 
     private void loadContacts() {

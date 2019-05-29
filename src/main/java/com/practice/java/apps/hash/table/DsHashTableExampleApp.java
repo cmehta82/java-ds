@@ -1,15 +1,15 @@
-package com.practice.java.apps;
+package com.practice.java.apps.hash.table;
 
-import com.practice.java.ds.hashes.BasicHashTable;
+import com.practice.java.ds.hash.table.DsHashTable;
 
-public class MotorcycleOilChangeApp {
+public class DsHashTableExampleApp {
 
     //we will use a 12 piece socket set for this job
-    private BasicHashTable<String, String> toolset = new BasicHashTable<>(12);
+    private DsHashTable<String, String> toolset = new DsHashTable<>(12);
 
     public static void main(String[] args) {
-        MotorcycleOilChangeApp app = new MotorcycleOilChangeApp();
-        app.changeOil();
+        DsHashTableExampleApp dsHashTableExampleApp = new DsHashTableExampleApp();
+        dsHashTableExampleApp.changeOil();
     }
 
     private void changeOil() {

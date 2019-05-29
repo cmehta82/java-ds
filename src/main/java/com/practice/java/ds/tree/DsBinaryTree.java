@@ -1,12 +1,12 @@
 package com.practice.java.ds.tree;
 
 @SuppressWarnings("UnusedReturnValue")
-public class BasicBinaryTree<X extends Comparable<X>> {
+public class DsBinaryTree<X extends Comparable<X>> {
 
-    private TreeNode<X> rootNode;
+    private DsTreeNode<X> rootNode;
     private int totalItems;
 
-    public BasicBinaryTree() {
+    public DsBinaryTree() {
         totalItems = 0;
     }
 
@@ -15,16 +15,16 @@ public class BasicBinaryTree<X extends Comparable<X>> {
     }
 
     public void add(X item) {
-        TreeNode<X> treeNode = new TreeNode<>(item);
+        DsTreeNode<X> dsTreeNode = new DsTreeNode<>(item);
         if (rootNode == null) {
-            this.rootNode = treeNode;
+            this.rootNode = dsTreeNode;
             this.totalItems++;
             return;
         }
-        insert(this.rootNode, treeNode);
+        insert(this.rootNode, dsTreeNode);
     }
 
-    private void insert(TreeNode<X> parent, TreeNode<X> child) {
+    private void insert(DsTreeNode<X> parent, DsTreeNode<X> child) {
         if (parent == null || child == null) {
             return;
         }
@@ -54,12 +54,12 @@ public class BasicBinaryTree<X extends Comparable<X>> {
             return false;
         }
 
-        TreeNode<X> treeNode = getNode(item);
-        return treeNode != null;
+        DsTreeNode<X> dsTreeNode = getNode(item);
+        return dsTreeNode != null;
     }
 
-    private TreeNode<X> getNode(X item) {
-        TreeNode<X> currentNode = this.rootNode;
+    private DsTreeNode<X> getNode(X item) {
+        DsTreeNode<X> currentNode = this.rootNode;
 
         while (currentNode != null) {
             int compareToValue = item.compareTo(currentNode.getItem());
@@ -78,13 +78,13 @@ public class BasicBinaryTree<X extends Comparable<X>> {
         if (this.rootNode == null) {
             return false;
         }
-        TreeNode<X> currentNode = getNode(item);
+        DsTreeNode<X> currentNode = getNode(item);
         if (currentNode == null) {
             return false;
         }
 
-        TreeNode<X> currentNodeLeft = currentNode.getLeft();
-        TreeNode<X> currentNodeRight = currentNode.getRight();
+        DsTreeNode<X> currentNodeLeft = currentNode.getLeft();
+        DsTreeNode<X> currentNodeRight = currentNode.getRight();
 
         if (currentNodeLeft == null && currentNodeRight == null) {
             unlink(currentNode, null);
@@ -100,7 +100,7 @@ public class BasicBinaryTree<X extends Comparable<X>> {
             return true;
         }
 
-        TreeNode<X> child = currentNodeLeft;
+        DsTreeNode<X> child = currentNodeLeft;
         while (child.getRight() != null && child.getLeft() != null) {
             child = child.getRight();
         }
@@ -114,7 +114,7 @@ public class BasicBinaryTree<X extends Comparable<X>> {
         return true;
     }
 
-    private void unlink(TreeNode<X> currentNode, TreeNode<X> nextNode) {
+    private void unlink(DsTreeNode<X> currentNode, DsTreeNode<X> nextNode) {
         totalItems--;
         if (this.rootNode.equals(currentNode)) {
             nextNode.setLeft(currentNode.getLeft());
@@ -123,7 +123,7 @@ public class BasicBinaryTree<X extends Comparable<X>> {
             return;
         }
 
-        TreeNode<X> parent = currentNode.getParent();
+        DsTreeNode<X> parent = currentNode.getParent();
         if (currentNode.equals(parent.getRight())) {
             parent.setRight(nextNode);
         } else {

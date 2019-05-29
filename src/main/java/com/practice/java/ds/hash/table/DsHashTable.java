@@ -1,9 +1,9 @@
-package com.practice.java.ds.hashes;
+package com.practice.java.ds.hash.table;
 
 @SuppressWarnings({"unchecked", "UnusedReturnValue"})
-public class BasicHashTable<X, Y> {
+public class DsHashTable<X, Y> {
 
-    private HashEntry<X, Y>[] hashTableItems;
+    private DsHashEntry<X, Y>[] dsHashEntries;
     private int hashTableCapacity;
     private int totalItems;
 
@@ -12,15 +12,15 @@ public class BasicHashTable<X, Y> {
         return this.totalItems;
     }
 
-    public BasicHashTable(int initialHashTableCapacity) {
+    public DsHashTable(int initialHashTableCapacity) {
         this.hashTableCapacity = initialHashTableCapacity;
-        this.hashTableItems = new HashEntry[initialHashTableCapacity];
+        this.dsHashEntries = new DsHashEntry[initialHashTableCapacity];
         this.totalItems = 0;
     }
 
     private int calculateHash(X key) {
         int hash = (key.hashCode() % this.hashTableCapacity);
-        while (hashTableItems[hash] != null && !hashTableItems[hash].getKey().equals(key)) {
+        while (dsHashEntries[hash] != null && !dsHashEntries[hash].getKey().equals(key)) {
             hash = (hash + 1) % this.hashTableCapacity;
         }
         return hash;
@@ -28,7 +28,7 @@ public class BasicHashTable<X, Y> {
 
     public Y get(X key) {
         int hash = calculateHash(key);
-        HashEntry<X, Y> hashItem = hashTableItems[hash];
+        DsHashEntry<X, Y> hashItem = dsHashEntries[hash];
         if (hashItem == null) {
             return null;
         }
@@ -37,7 +37,7 @@ public class BasicHashTable<X, Y> {
 
     public void put(X key, Y item) {
         int hash = calculateHash(key);
-        hashTableItems[hash] = new HashEntry<>(key, item);
+        dsHashEntries[hash] = new DsHashEntry<>(key, item);
         totalItems++;
     }
 
@@ -50,13 +50,13 @@ public class BasicHashTable<X, Y> {
 
         // shift the remaining hash items
         int hash = calculateHash(key);
-        hashTableItems[hash] = null;
+        dsHashEntries[hash] = null;
         totalItems--;
         hash = (hash + 1) % hashTableCapacity;
 
-        while (hashTableItems[hash] != null) {
-            HashEntry<X, Y> hashItem = hashTableItems[hash];
-            hashTableItems[hash] = null;
+        while (dsHashEntries[hash] != null) {
+            DsHashEntry<X, Y> hashItem = dsHashEntries[hash];
+            dsHashEntries[hash] = null;
             put(hashItem.getKey(), hashItem.getItem());
             totalItems--;
             hash = (hash + 1) % hashTableCapacity;
@@ -68,14 +68,14 @@ public class BasicHashTable<X, Y> {
     public boolean hasKey(X key) {
         int hash = calculateHash(key);
 
-        HashEntry<X, Y> hashItem = hashTableItems[hash];
+        DsHashEntry<X, Y> hashItem = dsHashEntries[hash];
 
         return hashItem != null && hashItem.getKey().equals(key);
     }
 
     public boolean hasValue(Y item) {
         for (int index = 0; index < this.hashTableCapacity; index++) {
-            HashEntry<X, Y> hashItem = hashTableItems[index];
+            DsHashEntry<X, Y> hashItem = dsHashEntries[index];
 
             if (hashItem != null && hashItem.getItem().equals(item)) {
                 return true;

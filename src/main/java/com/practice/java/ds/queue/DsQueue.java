@@ -3,13 +3,13 @@ package com.practice.java.ds.queue;
 import static java.lang.System.arraycopy;
 
 @SuppressWarnings({"unchecked", "UnusedReturnValue"})
-public class BasicQueue<X> {
+public class DsQueue<X> {
 
     private int queueEndCounter;
     private X[] queueItems;
     private int queueCapacity;
 
-    public BasicQueue(int queueInitialCapacity) {
+    public DsQueue(int queueInitialCapacity) {
         this.queueCapacity = queueInitialCapacity;
         this.queueItems = (X[]) new Object[queueInitialCapacity];
         this.queueEndCounter = -1;

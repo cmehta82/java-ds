@@ -1,20 +1,20 @@
 package com.practice.java.ds.list;
 
 @SuppressWarnings("WeakerAccess")
-public class LinkNode<X> {
+public class DsLinkNode<X> {
 
-    private LinkNode<X> nextNode;
+    private DsLinkNode<X> nextNode;
     private X nodeItem;
 
-    public LinkNode(X item) {
+    public DsLinkNode(X item) {
         this.nodeItem = item;
     }
 
-    public LinkNode<X> getNextNode() {
+    public DsLinkNode<X> getNextNode() {
         return nextNode;
     }
 
-    public void setNextNode(LinkNode<X> nextNode) {
+    public void setNextNode(DsLinkNode<X> nextNode) {
         this.nextNode = nextNode;
     }
 

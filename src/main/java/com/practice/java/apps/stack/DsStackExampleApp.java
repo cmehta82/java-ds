@@ -1,32 +1,32 @@
-package com.practice.java.apps;
+package com.practice.java.apps.stack;
 
-import com.practice.java.ds.stack.BasicStack;
+import com.practice.java.ds.stack.DsStack;
 
-public class CardStackApp {
-    private BasicStack<String> stack = new BasicStack<String>(100);
+public class DsStackExampleApp {
+    private DsStack<String> stack = new DsStack<>(100);
 
     public static void main(String[] args) {
-        CardStackApp app = new CardStackApp();
-        app.stackCards();
-        app.unstackCards();
+        DsStackExampleApp dsStackExampleApp = new DsStackExampleApp();
+        dsStackExampleApp.stackCards();
+        dsStackExampleApp.unstackCards();
 
         //restack cards
-        app.stackCards();
+        dsStackExampleApp.stackCards();
 
         //how many cards are on the deck
-        app.desckSize();
+        dsStackExampleApp.desckSize();
 
         //do we have queen of hearts in the deck
-        app.containsCard("Queen of Hearts");
+        dsStackExampleApp.containsCard("Queen of Hearts");
 
         //do we have a joker
-        app.containsCard("Joker");
+        dsStackExampleApp.containsCard("Joker");
 
         //go to the king of diamonds
-        app.goToCard(14);
+        dsStackExampleApp.goToCard(14);
 
         //now how many cards are on the deck
-        app.desckSize();
+        dsStackExampleApp.desckSize();
     }
 
     private void stackCards() {

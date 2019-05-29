@@ -1,13 +1,13 @@
 package com.practice.java.ds.stack;
 
 @SuppressWarnings({"unchecked"})
-public class BasicStack<X> {
+public class DsStack<X> {
 
     private int stackCounter;
     private X[] stackItems;
     private int stackCapacity;
 
-    public BasicStack(int initialStackCapacity) {
+    public DsStack(int initialStackCapacity) {
         this.stackCapacity = initialStackCapacity;
         this.stackItems = (X[]) new Object[initialStackCapacity];
         this.stackCounter = -1;

@@ -1,12 +1,12 @@
-package com.practice.java.ds.hashes;
+package com.practice.java.ds.hash.table;
 
 @SuppressWarnings("WeakerAccess")
-public class HashEntry<X, Y> {
+public class DsHashEntry<X, Y> {
 
     private X key;
     private Y item;
 
-    public HashEntry(X key, Y item) {
+    public DsHashEntry(X key, Y item) {
         this.key = key;
         this.item = item;
     }

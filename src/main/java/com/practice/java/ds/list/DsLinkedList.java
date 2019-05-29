@@ -1,13 +1,13 @@
 package com.practice.java.ds.list;
 
 @SuppressWarnings("UnusedReturnValue")
-public class BasicLinkedList<X> {
+public class DsLinkedList<X> {
 
-    private LinkNode<X> headNode;
-    private LinkNode<X> tailNode;
+    private DsLinkNode<X> headNode;
+    private DsLinkNode<X> tailNode;
     private int nodeCount;
 
-    public BasicLinkedList() {
+    public DsLinkedList() {
         nodeCount = 0;
     }
 
@@ -16,7 +16,7 @@ public class BasicLinkedList<X> {
     }
 
     public void add(X item) {
-        LinkNode<X> newNode = new LinkNode<>(item);
+        DsLinkNode<X> newNode = new DsLinkNode<>(item);
         if (headNode == null) {
             headNode = newNode;
         } else {
@@ -43,13 +43,13 @@ public class BasicLinkedList<X> {
             return false;
         }
 
-        LinkNode<X> insertAfterNode = headNode;
+        DsLinkNode<X> insertAfterNode = headNode;
         for (int index = 1; index < position; index++) {
             insertAfterNode = insertAfterNode.getNextNode();
         }
 
-        LinkNode<X> newNode = new LinkNode<>(item);
-        LinkNode<X> nextNode = insertAfterNode.getNextNode();
+        DsLinkNode<X> newNode = new DsLinkNode<>(item);
+        DsLinkNode<X> nextNode = insertAfterNode.getNextNode();
         insertAfterNode.setNextNode(newNode);
 
         // re-attach the rest of the list;
@@ -65,8 +65,8 @@ public class BasicLinkedList<X> {
             return null;
         }
 
-        LinkNode<X> previousToRemovedNode = headNode;
-        LinkNode<X> toBeRemovedNode = headNode;
+        DsLinkNode<X> previousToRemovedNode = headNode;
+        DsLinkNode<X> toBeRemovedNode = headNode;
 
         for (int index = 1; index < position; index++) {
             previousToRemovedNode = toBeRemovedNode;
@@ -86,7 +86,7 @@ public class BasicLinkedList<X> {
             return null;
         }
 
-        LinkNode<X> currentNode = headNode;
+        DsLinkNode<X> currentNode = headNode;
         for (int index = 1; index < position; index++) {
             currentNode = currentNode.getNextNode();
         }
@@ -98,7 +98,7 @@ public class BasicLinkedList<X> {
             return -1;
         }
 
-        LinkNode<X> currentNode = headNode;
+        DsLinkNode<X> currentNode = headNode;
         for (int index = 1; index < size(); index++) {
             if (item.equals(currentNode.getNodeItem())) {
                 return index;

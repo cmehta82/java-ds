@@ -1,13 +1,13 @@
-package com.practice.java.apps;
+package com.practice.java.apps.queue;
 
-import com.practice.java.ds.queue.BasicQueue;
+import com.practice.java.ds.queue.DsQueue;
 
-public class SnowbirdLiftApp {
-    private BasicQueue<Gad2Chair> gad2Lift = new BasicQueue<Gad2Chair>(100);
+public class DsQueueExampleApp {
+    private DsQueue<Gad2Chair> gad2Lift = new DsQueue<>(100);
 
     public static void main(String[] args) {
-        SnowbirdLiftApp app = new SnowbirdLiftApp();
-        app.runLift();
+        DsQueueExampleApp dsQueueExampleApp = new DsQueueExampleApp();
+        dsQueueExampleApp.runLift();
     }
 
     private void runLift() {
@@ -129,8 +129,8 @@ public class SnowbirdLiftApp {
             return this.seat1Name + ", " + this.seat2Name;
         }
 
-        private SnowbirdLiftApp getOuterType() {
-            return SnowbirdLiftApp.this;
+        private DsQueueExampleApp getOuterType() {
+            return DsQueueExampleApp.this;
         }
     }
 }

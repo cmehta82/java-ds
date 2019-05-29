@@ -1,35 +1,35 @@
-package com.practice.java.apps;
+package com.practice.java.apps.list;
 
-import com.practice.java.ds.list.BasicLinkedList;
+import com.practice.java.ds.list.DsLinkedList;
 
-public class TrainLinkedListApp {
+public class DsLinkedListExampleApp {
 
-    private BasicLinkedList<TrainCar> train = new BasicLinkedList<TrainCar>();
+    private DsLinkedList<TrainCar> train = new DsLinkedList<>();
 
     public static void main(String[] args) {
-        TrainLinkedListApp app = new TrainLinkedListApp();
-        app.buildInitialTrain();
+        DsLinkedListExampleApp dsLinkedListExampleApp = new DsLinkedListExampleApp();
+        dsLinkedListExampleApp.buildInitialTrain();
 
         //print out the train size
-        System.out.println(app.trainSize());
+        System.out.println(dsLinkedListExampleApp.trainSize());
 
         //first stop, we remove a car and add a couple more
-        app.firstStop();
+        dsLinkedListExampleApp.firstStop();
 
         //print out the train size
-        System.out.println("After First Stop train size: " + app.trainSize());
+        System.out.println("After First Stop train size: " + dsLinkedListExampleApp.trainSize());
 
         //second stop, we need to remove all the tankers
-        app.secondStop();
+        dsLinkedListExampleApp.secondStop();
 
         //print out the train size
-        System.out.println("After Second Stop train size: " + app.trainSize());
+        System.out.println("After Second Stop train size: " + dsLinkedListExampleApp.trainSize());
 
         //at the last stop we remove all of the train cars and we're done
-        app.lastStop();
+        dsLinkedListExampleApp.lastStop();
 
         //print out the train size
-        System.out.println("After Last Stop train size: " + app.trainSize());
+        System.out.println("After Last Stop train size: " + dsLinkedListExampleApp.trainSize());
     }
 
     private int trainSize() {
